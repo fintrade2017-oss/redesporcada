@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santuario Isla La Porcada — Brief &amp; Estrategia (ES / EN)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-paper: #f6f4ef;
+      --bg-card: #ffffff;
+      --bg-subtle: #ede9e0;
+      --bg-dark: #141918;
+      --bg-dark-soft: #1d2422;
+      --text-main: #181c1b;
+      --text-muted: #555e5b;
+      --accent: #8c6d3f;
+      --accent-soft: rgba(140, 109, 63, 0.12);
+      --border: #dcd6c9;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-paper);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Barra superior */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(20, 25, 24, 0.96);
+      backdrop-filter: blur(8px);
+      color: #f4f1ea;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand-tag {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      color: #f4f1ea;
+    }
+
+    .brand-tag span {
+      color: #cbb082;
+      font-style: italic;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: var(--bg-dark-soft);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 6px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: #b9c0bd;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .print-btn {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: transparent;
+      color: #f4f1ea;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .print-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+    }
+
+    /* Hero de gerencia */
+    .hero {
+      background: var(--bg-dark);
+      color: #f6f4ef;
+      border-radius: 12px;
+      padding: 44px 40px;
+      margin-bottom: 36px;
+      border: 1px solid rgba(203, 176, 130, 0.25);
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #cbb082;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.5vw, 48px);
+      line-height: 1.12;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: #d3d8d6;
+      max-width: 820px;
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
+    .kpi-card {
+      background: var(--bg-dark-soft);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+
+    .kpi-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9da8a4;
+      margin-bottom: 6px;
+    }
+
+    .kpi-value {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: #cbb082;
+      margin-top: 4px;
+    }
+
+    /* Secciones */
+    section {
+      margin-bottom: 44px;
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    /* Tarjetas y tablas */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .score-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .score-num {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .score-title {
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .score-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    th, td {
+      padding: 13px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-main);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-embargo {
+      background: var(--accent-soft);
+      color: #6f5329;
+      border: 1px solid rgba(140, 109, 63, 0.3);
+    }
+
+    .badge-reveal {
+      background: #e6f0ec;
+      color: #1d5742;
+      border: 1px solid rgba(29, 87, 66, 0.25);
+    }
+
+    /* Capítulos */
+    .chapter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 26px;
+      margin-bottom: 24px;
+    }
+
+    .chapter-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .chapter-title {
+      font-family: var(--font-serif);
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .tech-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      background: var(--bg-paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0 18px;
+      font-size: 13px;
+    }
+
+    .tech-list strong {
+      display: block;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .tech-list span {
+      color: var(--text-muted);
+    }
+
+    code.pill {
+      background: var(--bg-subtle);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      color: #181c1b;
+    }
+
+    .landing-preview {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .landing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 18px 0;
+    }
+
+    .pillar-item {
+      background: var(--bg-paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 13.5px;
+    }
+
+    .pillar-item h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .cta-box {
+      margin-top: 18px;
+      padding: 18px;
+      background: var(--bg-subtle);
+      border-radius: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .cta-btn {
+      background: var(--bg-dark);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    @media print {
+      .topbar, .print-btn {
+        display: none !important;
+      }
+      body {
+        background: #ffffff;
+      }
+      .container {
+        padding: 10px;
+      }
+      .chapter-card, .card, .hero, .landing-preview {
+        break-inside: avoid;
+      }
+    }
+  
+    /* Prompt tecnico (caja monoespaciada, estilo ficha) */
+    .prompt-box {
+      background: var(--bg-paper);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      position: relative;
+    }
+    .prompt-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .prompt-label-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+    .prompt-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, "JetBrains Mono", monospace;
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: #1f2422;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .copy-mini-btn {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      padding: 4px 10px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      cursor: pointer;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+    }
+    .copy-mini-btn:hover {
+      background: var(--bg-dark);
+      color: #ffffff;
+      border-color: var(--bg-dark);
+    }
+
+    /* Reproductor de video del prompt */
+    .prompt-video-wrap {
+      margin: 0 0 8px 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-dark);
+      position: relative;
+    }
+    .prompt-video-wrap video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: cover;
+      background: var(--bg-dark);
+    }
+    .prompt-video-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 9px 14px;
+      background: linear-gradient(0deg, rgba(20, 25, 24, 0.92) 0%, rgba(20, 25, 24, 0) 100%);
+      color: #f4f1ea;
+      font-size: 11.5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 500;
+      pointer-events: none;
+    }
+    .prompt-video-caption .pin {
+      color: #cbb082;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    @media print {
+      .prompt-video-wrap { page-break-inside: avoid; }
+      .prompt-video-wrap video { max-height: 320px; }
+      .prompt-box { page-break-inside: avoid; }
+    }
+
+    /* Seccion Serenidad */
+    .serenidad-block {
+      background: var(--bg-dark);
+      color: #f6f4ef;
+      border-radius: 12px;
+      padding: 36px 32px;
+      margin-top: 24px;
+      border: 1px solid rgba(203, 176, 130, 0.25);
+    }
+    .serenidad-block h2 {
+      color: #f6f4ef;
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .serenidad-block .section-desc {
+      color: #d3d8d6;
+      max-width: 820px;
+      margin-bottom: 22px;
+      font-size: 14.5px;
+    }
+    .serenidad-block .prompt-video-wrap {
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Footer con logos */
+    .doc-footer {
+      max-width: 1180px;
+      margin: 24px auto 0;
+      padding: 22px 24px 36px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 18px;
+    }
+    .footer-logo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-logo-item img {
+      height: 56px;
+      width: auto;
+      max-width: 220px;
+      object-fit: contain;
+      display: block;
+    }
+    .footer-logo-item small {
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .footer-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-line .brand {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--text-main);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .footer-line .brand .accent {
+      color: var(--accent);
+      font-style: italic;
+    }
+    .footer-line .legal {
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 640px) {
+      .footer-logo-item img { height: 42px; max-width: 160px; }
+      .footer-logos { gap: 20px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-tag">Santuario <span>Isla La Porcada</span></div>
+      <div class="controls">
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="es">ESPAÑOL (ES)</button>
+          <button type="button" class="lang-btn" data-lang="en">ENGLISH (EN)</button>
+        </div>
+        <button type="button" class="print-btn" onclick="window.print()" data-i18n="print_btn">Guardar / Imprimir PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="eyebrow" data-i18n="hero_eyebrow">Presentación a Gerencia · Brief de Medios &amp; Producción</div>
+      <h1 data-i18n="hero_title">Santuario Isla La Porcada — Campaña en 4 Capítulos</h1>
+      <p data-i18n="hero_desc">
+        Estrategia audiovisual progresiva para banqueros privados, External Asset Managers (EAMs) y Family Offices en Zúrich, Ginebra, Londres y Miami. Embargo geográfico total en los Capítulos 1–3 y revelación oficial en el Capítulo 4 (347 ha en Chiriquí, Panamá).
+      </p>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label" data-i18n="kpi1_label">Fase 0 · Emisión</div>
+          <div class="kpi-value" data-i18n="kpi1_val">5.000 Títulos</div>
+          <div class="kpi-sub" data-i18n="kpi1_sub">$250.000 USD Initiation Fee</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label" data-i18n="kpi2_label">Caja Neta Fase 0</div>
+          <div class="kpi-value">$1.000M USD</div>
+          <div class="kpi-sub" data-i18n="kpi2_sub">Bruto: $1.250M USD · $50k bono canal</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label" data-i18n="kpi3_label">CAPEX Estimado</div>
+          <div class="kpi-value">$739,74M USD</div>
+          <div class="kpi-sub" data-i18n="kpi3_sub">Escrow e hitos auditados</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label" data-i18n="kpi4_label">Liquidez &amp; Cuota</div>
+          <div class="kpi-value">$150k / $50k</div>
+          <div class="kpi-sub" data-i18n="kpi4_sub">Buyback Floor · Mantenimiento/año</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 1. VALORACIÓN TRUTHOME (≥ 9/10) -->
+    <section id="valuation">
+      <div class="section-header">
+        <h2 data-i18n="s1_title">1. Valoración Truthome Ajustada (Objetivo ≥ 9/10)</h2>
+        <p class="section-desc" data-i18n="s1_desc">
+          Alineación del relato con la regla de embargo hasta el Capítulo 4, rigor fiduciario y utilidad operativa para agencias.
+        </p>
+      </div>
+      <div class="score-grid">
+        <div class="score-box">
+          <div class="score-num">9.2 / 10</div>
+          <div class="score-title" data-i18n="sc1_title">Concepto</div>
+          <div class="score-text" data-i18n="sc1_text">Embudo de 4 tiempos con reglas estrictas de embargo en Capítulos 1–3 y resolución con anclaje real en el Capítulo 4.</div>
+        </div>
+        <div class="score-box">
+          <div class="score-num">9.0 / 10</div>
+          <div class="score-title" data-i18n="sc2_title">Solidez</div>
+          <div class="score-text" data-i18n="sc2_text">Cifras coherentes de captación, CAPEX, custodia escrow, hitos auditados, Buyback Floor ($150k) y cuota anual ($50k).</div>
+        </div>
+        <div class="score-box">
+          <div class="score-num">9.0 / 10</div>
+          <div class="score-title" data-i18n="sc3_title">Credibilidad</div>
+          <div class="score-text" data-i18n="sc3_text">Lenguaje de segregación patrimonial, gobernanza y cumplimiento KYC/AML apto para EAMs, banca privada y Family Offices.</div>
+        </div>
+        <div class="score-box">
+          <div class="score-num">9.2 / 10</div>
+          <div class="score-title" data-i18n="sc4_title">Utilidad</div>
+          <div class="score-text" data-i18n="sc4_text">Fichas técnicas de vídeo, guiones segundo a segundo y arquitectura de landing bajo NDA listos para ejecución.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MATRIZ DE CAMPAÑA -->
+    <section id="matrix">
+      <div class="section-header">
+        <h2 data-i18n="s2_title">2. Estrategia de Despliegue Progresivo (4 Capítulos)</h2>
+        <p class="section-desc" data-i18n="s2_desc">
+          Secuencia de revelación diseñada para construir tesis patrimonial antes de revelar Panamá.
+        </p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="th_cap">Capítulo</th>
+              <th data-i18n="th_axis">Eje Narrativo</th>
+              <th data-i18n="th_embargo">Revelación</th>
+              <th data-i18n="th_goal">Objetivo Institucional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cap. 1 · 35s</strong></td>
+              <td data-i18n="m1_axis">Soberanía del Entorno y Privacidad</td>
+              <td><span class="badge badge-embargo" data-i18n="b_embargo">Embargo Total (0%)</span></td>
+              <td data-i18n="m1_goal">Posicionar discreción, control del entorno y círculo limitado a 5.000 titulares sin pistas geográficas.</td>
+            </tr>
+            <tr>
+              <td><strong>Cap. 2 · 40s</strong></td>
+              <td data-i18n="m2_axis">Segregación Patrimonial y Gobernanza</td>
+              <td><span class="badge badge-embargo" data-i18n="b_embargo">Embargo Total (0%)</span></td>
+              <td data-i18n="m2_goal">Hablar el lenguaje de EAMs y Family Offices: patrimonio autónomo, gobernanza y sucesión ordenada.</td>
+            </tr>
+            <tr>
+              <td><strong>Cap. 3 · 40s</strong></td>
+              <td data-i18n="m3_axis">Control por Hitos y Liquidez</td>
+              <td><span class="badge badge-embargo" data-i18n="b_embargo">Embargo Total (0%)</span></td>
+              <td data-i18n="m3_goal">Respaldar la ejecución con escrow, interventoría independiente y Buyback Floor de $150.000 USD.</td>
+            </tr>
+            <tr>
+              <td><strong>Cap. 4 · 45s</strong></td>
+              <td data-i18n="m4_axis">Revelación: Santuario Isla La Porcada</td>
+              <td><span class="badge badge-reveal" data-i18n="b_reveal">Revelación Oficial</span></td>
+              <td data-i18n="m4_goal">Revelar 347 ha en Chiriquí (Panamá), Ley 1 de 1997, y activar acceso al PPM bajo NDA en Zúrich, Ginebra, Londres y Miami.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. FICHAS TÉCNICAS Y GUIONES -->
+    <section id="scripts">
+      <div class="section-header">
+        <h2 data-i18n="s3_title">3. Fichas Técnicas de Vídeo y Guiones Segundo a Segundo</h2>
+        <p class="section-desc" data-i18n="s3_desc">
+          Formatos 16:9 y 9:16, comportamiento con y sin audio, control de embargo y guion detallado por entrega.
+        </p>
+      </div>
+
+      <!-- CAP 1 -->
+      <article class="chapter-card">
+        <div class="chapter-top">
+          <h3 class="chapter-title" data-i18n="c1_title">Capítulo 01 · La Tesis — Soberanía y Privacidad (35s)</h3>
+          <span class="badge badge-embargo" data-i18n="b_embargo">Embargo Total (0%)</span>
+        </div>
+        <div class="tech-list">
+          <div><strong data-i18n="lbl_formats">Formatos</strong><span data-i18n="c1_fmt">Master 16:9 + 9:16 nativo + versión clean</span></div>
+          <div><strong data-i18n="lbl_audio">Con / Sin Audio</strong><span data-i18n="c1_aud">Autoplay silencioso con rótulos clave; locución sobria con audio</span></div>
+          <div><strong data-i18n="lbl_embargo">Control de Embargo</strong><span data-i18n="c1_emb">Cero nombre, país, coordenadas o rasgos geográficos</span></div>
+          <div><strong data-i18n="lbl_quality">Calidad</strong><span data-i18n="c1_qua">Arquitectura estable, luz dorada, sin artefactos de IA</span></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="th_time">Tiempo</th>
+                <th data-i18n="th_vis">Pauta Visual</th>
+                <th data-i18n="th_tit">Rótulo</th>
+                <th data-i18n="th_vo">Locución</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>00:00–00:08</td>
+                <td data-i18n="c1_s1_v">Avance lento hacia pabellón minimalista de piedra, madera oscura y cristal junto a agua en calma.</td>
+                <td>—</td>
+                <td data-i18n="c1_s1_o">"Durante décadas, el lujo se midió por su visibilidad."</td>
+              </tr>
+              <tr>
+                <td>00:08–00:17</td>
+                <td data-i18n="c1_s2_v">Plano medio sobre agua serena y fachada discreta sin multitudes ni ruido visual.</td>
+                <td><code class="pill" data-i18n="c1_s2_t">SOBERANÍA DEL ENTORNO</code></td>
+                <td data-i18n="c1_s2_o">"Hoy, el verdadero estándar para el gran patrimonio es otro: la soberanía del entorno."</td>
+              </tr>
+              <tr>
+                <td>00:17–00:26</td>
+                <td data-i18n="c1_s3_v">Detalle de piedra texturizada, bronce cepillado y cristal con luz lateral suave.</td>
+                <td><code class="pill" data-i18n="c1_s3_t">PRIVACIDAD SIN CONCESIONES</code></td>
+                <td data-i18n="c1_s3_o">"Control sobre el espacio, discreción real y distancia frente al ruido cotidiano."</td>
+              </tr>
+              <tr>
+                <td>00:26–00:35</td>
+                <td data-i18n="c1_s4_v">Plano general contenido frente al agua serena con fundido limpio a negro.</td>
+                <td><code class="pill" data-i18n="c1_s4_t">5.000 TÍTULOS EXECUTIVE</code></td>
+                <td data-i18n="c1_s4_o">"Una membresía concebida para cinco mil titulares seleccionados con rigor."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <div class="prompt-box">
+          <div class="prompt-label">
+            <span class="prompt-label-title" data-i18n="c1_prompt_lbl">Prompt Técnico de Producción IA (Runway Gen-3 / Sora / Kling)</span>
+            <button class="copy-mini-btn" onclick="copyPrompt('p1')" data-i18n="copy_prompt">Copiar Prompt</button>
+          </div>
+          <div class="prompt-text" id="p1">Ultra-luxury institutional brand film shot on ARRI Alexa LF with 35mm anamorphic prime lens, f/2.0, shallow depth of field. Slow, deliberate dolly push-in along a minimalist pavilion crafted from honed travertine limestone, dark charred timber, and floor-to-ceiling architectural glass overlooking calm, glassy water. Warm early-morning golden side lighting casting long, serene shadows across textured stone and brushed bronze details. Editorial architectural cinema aesthetic, understated wealth, quietude and absolute privacy, zero text overlays, no identifiable landmarks, no geographic clues, photorealistic, 24fps, cinematic color grading.</div>
+        </div>
+        <div class="prompt-video-wrap">
+          <video controls preload="metadata" playsinline>
+            <source src="video/video1.mp4" type="video/mp4">
+            <span data-i18n="video_nosupport">Tu navegador no soporta la reproducción de video.</span>
+          </video>
+          <div class="prompt-video-caption"><span class="pin">Capítulo 01 · Video</span><span data-i18n="c1_video_cap">Video referencial · Capítulo 01 · La Tesis</span></div>
+        </div>
+</article>
+
+      <!-- CAP 2 -->
+      <article class="chapter-card">
+        <div class="chapter-top">
+          <h3 class="chapter-title" data-i18n="c2_title">Capítulo 02 · El Blindaje — Segregación y Gobernanza (40s)</h3>
+          <span class="badge badge-embargo" data-i18n="b_embargo">Embargo Total (0%)</span>
+        </div>
+        <div class="tech-list">
+          <div><strong data-i18n="lbl_formats">Formatos</strong><span data-i18n="c2_fmt">Master 16:9 + 9:16 nativo + versión clean</span></div>
+          <div><strong data-i18n="lbl_audio">Con / Sin Audio</strong><span data-i18n="c2_aud">Rótulos jurídicos claros en silencio; locución institucional con audio</span></div>
+          <div><strong data-i18n="lbl_embargo">Control de Embargo</strong><span data-i18n="c2_emb">Sin mencionar Panamá ni legislación local antes del Cap. 4</span></div>
+          <div><strong data-i18n="lbl_quality">Calidad</strong><span data-i18n="c2_qua">Encuadres sobrios, tipografía legible, sin parpadeo</span></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="th_time">Tiempo</th>
+                <th data-i18n="th_vis">Pauta Visual</th>
+                <th data-i18n="th_tit">Rótulo</th>
+                <th data-i18n="th_vo">Locución</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>00:00–00:10</td>
+                <td data-i18n="c2_s1_v">Plano sobrio sobre mesa con piedra natural, carpeta sin marcas y luz direccional.</td>
+                <td><code class="pill" data-i18n="c2_s1_t">PATRIMONIO AUTÓNOMO</code></td>
+                <td data-i18n="c2_s1_o">"Un activo patrimonial exige algo más que una buena estética: exige arquitectura jurídica."</td>
+              </tr>
+              <tr>
+                <td>00:10–00:20</td>
+                <td data-i18n="c2_s2_v">Transición suave a espacio interior luminoso con líneas geométricas limpias.</td>
+                <td><code class="pill" data-i18n="c2_s2_t">SEGREGACIÓN DE RIESGOS</code></td>
+                <td data-i18n="c2_s2_o">"Estructura fiduciaria con segregación patrimonial, separando el vehículo del riesgo operativo."</td>
+              </tr>
+              <tr>
+                <td>00:20–00:30</td>
+                <td data-i18n="c2_s3_v">Plano detalle de elementos arquitectónicos sólidos y equilibrados.</td>
+                <td><code class="pill" data-i18n="c2_s3_t">GOBERNANZA Y CUMPLIMIENTO</code></td>
+                <td data-i18n="c2_s3_o">"Procesos auditables, estándares estrictos de cumplimiento y continuidad sucesoria ordenada."</td>
+              </tr>
+              <tr>
+                <td>00:30–00:40</td>
+                <td data-i18n="c2_s4_v">Plano final sereno del espacio arquitectónico con fundido a negro.</td>
+                <td><code class="pill" data-i18n="c2_s4_t">ARQUITECTURA INSTITUCIONAL</code></td>
+                <td data-i18n="c2_s4_o">"Diseñado para perdurar y responder al criterio de asesores y family offices."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <div class="prompt-box">
+          <div class="prompt-label">
+            <span class="prompt-label-title" data-i18n="c2_prompt_lbl">Prompt Técnico de Producción IA (Runway Gen-3 / Sora / Kling)</span>
+            <button class="copy-mini-btn" onclick="copyPrompt('p2')" data-i18n="copy_prompt">Copiar Prompt</button>
+          </div>
+          <div class="prompt-text" id="p2">High-contrast Swiss private-banking editorial cinematography captured on RED V-Raptor with 50mm macro and prime lenses, f/2.8. Smooth, locked-off slider pan across tactile surfaces: thick archival cotton paper, embossed dark calfskin folio, brushed titanium, and still dark water reflecting soft architectural light. Moody, controlled chiaroscuro studio and natural window lighting with crisp rim highlights on metal edges and fine paper grain. Symbolizing legal precision, autonomy, and discretion without any names, flags, maps, or location markers, ultra-clean composition, 24fps, photorealistic.</div>
+        </div>
+        <div class="prompt-video-wrap">
+          <video controls preload="metadata" playsinline>
+            <source src="video/video2.mp4" type="video/mp4">
+            <span data-i18n="video_nosupport">Tu navegador no soporta la reproducción de video.</span>
+          </video>
+          <div class="prompt-video-caption"><span class="pin">Capítulo 02 · Video</span><span data-i18n="c2_video_cap">Video referencial · Capítulo 02 · El Blindaje</span></div>
+        </div>
+</article>
+
+      <!-- CAP 3 -->
+      <article class="chapter-card">
+        <div class="chapter-top">
+          <h3 class="chapter-title" data-i18n="c3_title">Capítulo 03 · El Respaldo — Hitos y Liquidez (40s)</h3>
+          <span class="badge badge-embargo" data-i18n="b_embargo">Embargo Total (0%)</span>
+        </div>
+        <div class="tech-list">
+          <div><strong data-i18n="lbl_formats">Formatos</strong><span data-i18n="c3_fmt">Master 16:9 + 9:16 nativo + versión clean</span></div>
+          <div><strong data-i18n="lbl_audio">Con / Sin Audio</strong><span data-i18n="c3_aud">Rótulos de control visibles en silencio; voz firme con audio</span></div>
+          <div><strong data-i18n="lbl_embargo">Control de Embargo</strong><span data-i18n="c3_emb">Sin revelar ubicación ni panorámicas identificables</span></div>
+          <div><strong data-i18n="lbl_quality">Calidad</strong><span data-i18n="c3_qua">Precisión en cifras validadas y transiciones limpias</span></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="th_time">Tiempo</th>
+                <th data-i18n="th_vis">Pauta Visual</th>
+                <th data-i18n="th_tit">Rótulo</th>
+                <th data-i18n="th_vo">Locución</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>00:00–00:10</td>
+                <td data-i18n="c3_s1_v">Plano arquitectónico estable con luz natural equilibrada y sensación de solidez.</td>
+                <td><code class="pill" data-i18n="c3_s1_t">CUSTODIA ESCROW</code></td>
+                <td data-i18n="c3_s1_o">"La confianza se construye con controles verificables antes de cada avance."</td>
+              </tr>
+              <tr>
+                <td>00:10–00:20</td>
+                <td data-i18n="c3_s2_v">Planos breves y limpios de detalle estructural y acabados en entorno tranquilo.</td>
+                <td><code class="pill" data-i18n="c3_s2_t">DESEMBOLSO POR HITOS AUDITADOS</code></td>
+                <td data-i18n="c3_s2_o">"Los fondos operan bajo custodia escrow y se liberan solo tras hitos auditados y validación técnica."</td>
+              </tr>
+              <tr>
+                <td>00:20–00:31</td>
+                <td data-i18n="c3_s3_v">Continuidad visual serena hacia el exterior arquitectónico sin pistas geográficas.</td>
+                <td><code class="pill">BUYBACK FLOOR: $150.000 USD</code></td>
+                <td data-i18n="c3_s3_o">"Integra un suelo de liquidez contractual de ciento cincuenta mil dólares y mantenimiento auditado."</td>
+              </tr>
+              <tr>
+                <td>00:31–00:40</td>
+                <td data-i18n="c3_s4_v">Plano sereno de cierre hacia pantalla institucional sin revelar ubicación.</td>
+                <td><code class="pill" data-i18n="c3_s4_t">DISCIPLINA DE CAPITAL</code></td>
+                <td data-i18n="c3_s4_o">"Rigor de ejecución en cada fase, antes de revelar el destino."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <div class="prompt-box">
+          <div class="prompt-label">
+            <span class="prompt-label-title" data-i18n="c3_prompt_lbl">Prompt Técnico de Producción IA (Runway Gen-3 / Sora / Kling)</span>
+            <button class="copy-mini-btn" onclick="copyPrompt('p3')" data-i18n="copy_prompt">Copiar Prompt</button>
+          </div>
+          <div class="prompt-text" id="p3">Architectural engineering film shot on Sony Venice 2 with 24mm rectilinear lens, f/4, crisp geometric lines and deep focus. Fluid crane-down reveal over a refined architectural scale model made of natural teak, light oak, and matte stone on a dark slate table, paired with precision drafting instruments and natural daylight streaming through tall louvers. Balanced, high-clarity daylight with subtle warm bounce light, evoking rigorous verification, structural discipline, and controlled execution. Strictly no project names, no country or region references, no text, photorealistic, 24fps.</div>
+        </div>
+        <div class="prompt-video-wrap">
+          <video controls preload="metadata" playsinline>
+            <source src="video/video3.mp4" type="video/mp4">
+            <span data-i18n="video_nosupport">Tu navegador no soporta la reproducción de video.</span>
+          </video>
+          <div class="prompt-video-caption"><span class="pin">Capítulo 03 · Video</span><span data-i18n="c3_video_cap">Video referencial · Capítulo 03 · El Respaldo</span></div>
+        </div>
+</article>
+
+      <!-- CAP 4 -->
+      <article class="chapter-card">
+        <div class="chapter-top">
+          <h3 class="chapter-title" data-i18n="c4_title">Capítulo 04 · La Revelación — Santuario Isla La Porcada (45s)</h3>
+          <span class="badge badge-reveal" data-i18n="b_reveal">Revelación Oficial</span>
+        </div>
+        <div class="tech-list">
+          <div><strong data-i18n="lbl_formats">Formatos</strong><span data-i18n="c4_fmt">Master 16:9 + 9:16 nativo + clean + cutdowns CTA</span></div>
+          <div><strong data-i18n="lbl_audio">Con / Sin Audio</strong><span data-i18n="c4_aud">Revelación clara de ubicación y acceso PPM en ambos modos</span></div>
+          <div><strong data-i18n="lbl_embargo">Control de Embargo</strong><span data-i18n="c4_emb">Apertura oficial de marca, Chiriquí (Panamá) y Ley 1 de 1997</span></div>
+          <div><strong data-i18n="lbl_quality">Calidad</strong><span data-i18n="c4_qua">Planos amplios estables y cierre limpio hacia NDA/PPM</span></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="th_time">Tiempo</th>
+                <th data-i18n="th_vis">Pauta Visual</th>
+                <th data-i18n="th_tit">Rótulo</th>
+                <th data-i18n="th_vo">Locución</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>00:00–00:11</td>
+                <td data-i18n="c4_s1_v">Apertura visual amplia que revela el entorno natural, el borde costero y la arquitectura.</td>
+                <td><code class="pill">SANTUARIO ISLA LA PORCADA</code></td>
+                <td data-i18n="c4_s1_o">"Llega el momento de la revelación: Santuario Isla La Porcada."</td>
+              </tr>
+              <tr>
+                <td>00:11–00:22</td>
+                <td data-i18n="c4_s2_v">Planos amplios que muestran la escala del enclave integrado con el entorno natural.</td>
+                <td><code class="pill" data-i18n="c4_s2_t">347 HA · CHIRIQUÍ, PANAMÁ</code></td>
+                <td data-i18n="c4_s2_o">"Trescientas cuarenta y siete hectáreas en Chiriquí, Panamá, estructuradas bajo fideicomiso regulado."</td>
+              </tr>
+              <tr>
+                <td>00:22–00:34</td>
+                <td data-i18n="c4_s3_v">Planos serenos de arquitectura integrada y entorno preservado a ritmo pausado.</td>
+                <td><code class="pill" data-i18n="c4_s3_t">5.000 TÍTULOS EXECUTIVE · LEY 1 DE 1997</code></td>
+                <td data-i18n="c4_s3_o">"Un proyecto con respaldo fiduciario y cinco mil títulos Executive concebidos para un círculo selecto."</td>
+              </tr>
+              <tr>
+                <td>00:34–00:45</td>
+                <td data-i18n="c4_s4_v">Cierre institucional sobrio con llamada a la acción para inversores cualificados.</td>
+                <td><code class="pill" data-i18n="c4_s4_t">ZÚRICH · GINEBRA · LONDRES · MIAMI · PPM (NDA)</code></td>
+                <td data-i18n="c4_s4_o">"Solicite una reunión privada y el Private Placement Memorandum en Zúrich, Ginebra, Londres o Miami."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <div class="prompt-box">
+          <div class="prompt-label">
+            <span class="prompt-label-title" data-i18n="c4_prompt_lbl">Prompt Técnico de Producción IA (Runway Gen-3 / Sora / Kling)</span>
+            <button class="copy-mini-btn" onclick="copyPrompt('p4')" data-i18n="copy_prompt">Copiar Prompt</button>
+          </div>
+          <div class="prompt-text" id="p4">Sweeping aerial cinema shot on heavy-lift cinema drone with 28mm wide lens, f/4, smooth ascending orbit over a lush private tropical island surrounded by deep Pacific Ocean waters and secluded coves at golden hour. Warm amber late-afternoon sunlight illuminating dense emerald canopy, unspoiled sandy shoreline, and discreet low-profile luxury villas nestled naturally into the terrain. Rich dynamic range, natural lens flare, serene ocean swells, sense of timeless legacy and sovereign seclusion, photorealistic 4K look, 24fps.</div>
+        </div>
+        <div class="prompt-video-wrap">
+          <video controls preload="metadata" playsinline>
+            <source src="video/video4.mp4" type="video/mp4">
+            <span data-i18n="video_nosupport">Tu navegador no soporta la reproducción de video.</span>
+          </video>
+          <div class="prompt-video-caption"><span class="pin">Capítulo 04 · Video</span><span data-i18n="c4_video_cap">Video referencial · Capítulo 04 · La Revelación</span></div>
+        </div>
+</article>
+    </section>
+
+    <!-- 4. LANDING CONFIDENCIAL CAPÍTULO 4 -->
+    <section id="landing">
+      <div class="section-header">
+        <h2 data-i18n="s4_title">4. Página de Aterrizaje Confidencial — Capítulo 4 (PPM bajo NDA)</h2>
+        <p class="section-desc" data-i18n="s4_desc">
+          Estructura y textos clave para convertir tráfico cualificado hacia reuniones y entrega del PPM previa verificación y NDA.
+        </p>
+      </div>
+      <div class="landing-preview">
+        <div class="eyebrow" data-i18n="lp_eyebrow">Revelación Oficial · Chiriquí, Panamá · Acceso Restringido</div>
+        <h3 style="font-family: var(--font-serif); font-size: 28px; margin-bottom: 10px;" data-i18n="lp_title">
+          Santuario Isla La Porcada: Una Arquitectura Patrimonial Respaldada en Fideicomiso
+        </h3>
+        <p style="color: var(--text-muted); margin-bottom: 16px;" data-i18n="lp_lead">
+          Información reservada a banqueros privados, external asset managers (EAMs), family offices e inversores cualificados. La entrega del Private Placement Memorandum (PPM) se realiza previa verificación y firma de NDA.
+        </p>
+        <p style="margin-bottom: 16px;" data-i18n="lp_body">
+          Tras tres capítulos centrados en la soberanía del entorno, la segregación patrimonial y la disciplina de control, se revela el emplazamiento del proyecto: 347 hectáreas en Chiriquí, República de Panamá, articuladas mediante un fideicomiso mercantil regulado bajo la Ley 1 de 1997 y una emisión limitada a 5.000 Títulos Executive en Fase 0.
+        </p>
+
+        <div class="landing-grid">
+          <div class="pillar-item">
+            <h4 data-i18n="p1_h">Segregación y Gobernanza</h4>
+            <p data-i18n="p1_p">Patrimonio autónomo bajo fideicomiso mercantil regulado, continuidad sucesoria ordenada y cumplimiento KYC/AML.</p>
+          </div>
+          <div class="pillar-item">
+            <h4 data-i18n="p2_h">Control por Hitos y Escrow</h4>
+            <p data-i18n="p2_p">Custodia escrow y desembolsos condicionados a certificación técnica independiente en obra y validación operativa.</p>
+          </div>
+          <div class="pillar-item">
+            <h4 data-i18n="p3_h">Liquidez y Mantenimiento</h4>
+            <p data-i18n="p3_p">Buyback Floor contractual de $150.000 USD sujeto a provisión fiduciaria y cuota anual auditada de $50.000 USD.</p>
+          </div>
+          <div class="pillar-item">
+            <h4 data-i18n="p4_h">Plazas de Atención</h4>
+            <p data-i18n="p4_p">Reuniones privadas y entrega de documentación bajo NDA en Zúrich, Ginebra, Londres y Miami.</p>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <div>
+            <strong style="display: block; font-size: 14px;" data-i18n="cta_title">Formulario Cualificado: Nombre · Entidad · Cargo · Correo Corporativo · Plaza (Zúrich, Ginebra, Londres, Miami) · Aceptación NDA</strong>
+            <span style="font-size: 12.5px; color: var(--text-muted);" data-i18n="cta_legal">No constituye oferta pública de valores. Sujeto a elegibilidad jurisdiccional, verificación y firma de NDA.</span>
+          </div>
+          <div class="cta-btn" data-i18n="cta_btn">Solicitar Acceso Bajo NDA</div>
+        </div>
+      </div>
+    </section>
+    <!-- 5. SERENIDAD — Cierre contemplativo -->
+    <section id="serenidad" class="serenidad-block">
+      <h2 data-i18n="s5_title">Serenidad</h2>
+      <p class="section-desc" data-i18n="s5_desc">
+        Cierre contemplativo de la campaña. Una pieza audiovisual que resume la promesa del Santuario: soberanía, silencio y pertenencia, condensados en un instante de quietud frente al Pacífico de Chiriquí.
+      </p>
+      <div class="prompt-video-wrap">
+        <video controls preload="metadata" playsinline>
+          <source src="video/video5.mp4" type="video/mp4">
+          <span data-i18n="video_nosupport">Tu navegador no soporta la reproducción de video.</span>
+        </video>
+        <div class="prompt-video-caption"><span class="pin">Serenidad · Video</span><span data-i18n="s5_video_cap">Video referencial · Serenidad — Cierre contemplativo</span></div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="doc-footer">
+    <div class="footer-logos">
+      <div class="footer-logo-item">
+        <img src="images/eco.png" alt="Ecoresort La Porcada">
+        <small data-i18n="logo_eco">Ecoresort La Porcada</small>
+      </div>
+      <div class="footer-logo-item">
+        <img src="images/logo.png" alt="Takyma Investment Pioneer">
+        <small data-i18n="logo_takyma">Takyma Investment Pioneer — Promotor</small>
+      </div>
+    </div>
+    <div class="footer-line">
+      <div class="brand">Ecoresort <span class="accent">La Porcada</span> · Santuario Isla La Porcada</div>
+      <div class="legal" data-i18n="footer_legal">© 2026 Ecoresort La Porcada — by Takyma Investment Pioneer. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+
+  <script>
+    const translations = {
+      es: {
+        print_btn: "Guardar / Imprimir PDF",
+        hero_eyebrow: "Presentación a Gerencia · Brief de Medios & Producción",
+        hero_title: "Santuario Isla La Porcada — Campaña en 4 Capítulos",
+        hero_desc: "Estrategia audiovisual progresiva para banqueros privados, External Asset Managers (EAMs) y Family Offices en Zúrich, Ginebra, Londres y Miami. Embargo geográfico total en los Capítulos 1–3 y revelación oficial en el Capítulo 4 (347 ha en Chiriquí, Panamá).",
+        kpi1_label: "Fase 0 · Emisión",
+        kpi1_val: "5.000 Títulos",
+        kpi1_sub: "$250.000 USD Initiation Fee",
+        kpi2_label: "Caja Neta Fase 0",
+        kpi2_sub: "Bruto: $1.250M USD · $50k bono canal",
+        kpi3_label: "CAPEX Estimado",
+        kpi3_sub: "Escrow e hitos auditados",
+        kpi4_label: "Liquidez & Cuota",
+        kpi4_sub: "Buyback Floor · Mantenimiento/año",
+        s1_title: "1. Valoración Truthome Ajustada (Objetivo ≥ 9/10)",
+        s1_desc: "Alineación del relato con la regla de embargo hasta el Capítulo 4, rigor fiduciario y utilidad operativa para agencias.",
+        sc1_title: "Concepto",
+        sc1_text: "Embudo de 4 tiempos con reglas estrictas de embargo en Capítulos 1–3 y resolución con anclaje real en el Capítulo 4.",
+        sc2_title: "Solidez",
+        sc2_text: "Cifras coherentes de captación, CAPEX, custodia escrow, hitos auditados, Buyback Floor ($150k) y cuota anual ($50k).",
+        sc3_title: "Credibilidad",
+        sc3_text: "Lenguaje de segregación patrimonial, gobernanza y cumplimiento KYC/AML apto para EAMs, banca privada y Family Offices.",
+        sc4_title: "Utilidad",
+        sc4_text: "Fichas técnicas de vídeo, guiones segundo a segundo y arquitectura de landing bajo NDA listos para ejecución.",
+        s2_title: "2. Estrategia de Despliegue Progresivo (4 Capítulos)",
+        s2_desc: "Secuencia de revelación diseñada para construir tesis patrimonial antes de revelar Panamá.",
+        th_cap: "Capítulo",
+        th_axis: "Eje Narrativo",
+        th_embargo: "Revelación",
+        th_goal: "Objetivo Institucional",
+        b_embargo: "Embargo Total (0%)",
+        b_reveal: "Revelación Oficial",
+        m1_axis: "Soberanía del Entorno y Privacidad",
+        m1_goal: "Posicionar discreción, control del entorno y círculo limitado a 5.000 titulares sin pistas geográficas.",
+        m2_axis: "Segregación Patrimonial y Gobernanza",
+        m2_goal: "Hablar el lenguaje de EAMs y Family Offices: patrimonio autónomo, gobernanza y sucesión ordenada.",
+        m3_axis: "Control por Hitos y Liquidez",
+        m3_goal: "Respaldar la ejecución con escrow, interventoría independiente y Buyback Floor de $150.000 USD.",
+        m4_axis: "Revelación: Santuario Isla La Porcada",
+        m4_goal: "Revelar 347 ha en Chiriquí (Panamá), Ley 1 de 1997, y activar acceso al PPM bajo NDA en Zúrich, Ginebra, Londres y Miami.",
+        s3_title: "3. Fichas Técnicas de Vídeo y Guiones Segundo a Segundo",
+        s3_desc: "Formatos 16:9 y 9:16, comportamiento con y sin audio, control de embargo y guion detallado por entrega.",
+        lbl_formats: "Formatos",
+        lbl_audio: "Con / Sin Audio",
+        lbl_embargo: "Control de Embargo",
+        lbl_quality: "Calidad",
+        th_time: "Tiempo",
+        th_vis: "Pauta Visual",
+        th_tit: "Rótulo",
+        th_vo: "Locución",
+        c1_title: "Capítulo 01 · La Tesis — Soberanía y Privacidad (35s)",
+        c1_fmt: "Master 16:9 + 9:16 nativo + versión clean",
+        c1_aud: "Autoplay silencioso con rótulos clave; locución sobria con audio",
+        c1_emb: "Cero nombre, país, coordenadas o rasgos geográficos",
+        c1_qua: "Arquitectura estable, luz dorada, sin artefactos de IA",
+        c1_s1_v: "Avance lento hacia pabellón minimalista de piedra, madera oscura y cristal junto a agua en calma.",
+        c1_s1_o: "\"Durante décadas, el lujo se midió por su visibilidad.\"",
+        c1_s2_v: "Plano medio sobre agua serena y fachada discreta sin multitudes ni ruido visual.",
+        c1_s2_t: "SOBERANÍA DEL ENTORNO",
+        c1_s2_o: "\"Hoy, el verdadero estándar para el gran patrimonio es otro: la soberanía del entorno.\"",
+        c1_s3_v: "Detalle de piedra texturizada, bronce cepillado y cristal con luz lateral suave.",
+        c1_s3_t: "PRIVACIDAD SIN CONCESIONES",
+        c1_s3_o: "\"Control sobre el espacio, discreción real y distancia frente al ruido cotidiano.\"",
+        c1_s4_v: "Plano general contenido frente al agua serena con fundido limpio a negro.",
+        c1_s4_t: "5.000 TÍTULOS EXECUTIVE",
+        c1_s4_o: "\"Una membresía concebida para cinco mil titulares seleccionados con rigor.\"",
+        c2_title: "Capítulo 02 · El Blindaje — Segregación y Gobernanza (40s)",
+        c2_fmt: "Master 16:9 + 9:16 nativo + versión clean",
+        c2_aud: "Rótulos jurídicos claros en silencio; locución institucional con audio",
+        c2_emb: "Sin mencionar Panamá ni legislación local antes del Cap. 4",
+        c2_qua: "Encuadres sobrios, tipografía legible, sin parpadeo",
+        c2_s1_v: "Plano sobrio sobre mesa con piedra natural, carpeta sin marcas y luz direccional.",
+        c2_s1_t: "PATRIMONIO AUTÓNOMO",
+        c2_s1_o: "\"Un activo patrimonial exige algo más que una buena estética: exige arquitectura jurídica.\"",
+        c2_s2_v: "Transición suave a espacio interior luminoso con líneas geométricas limpias.",
+        c2_s2_t: "SEGREGACIÓN DE RIESGOS",
+        c2_s2_o: "\"Estructura fiduciaria con segregación patrimonial, separando el vehículo del riesgo operativo.\"",
+        c2_s3_v: "Plano detalle de elementos arquitectónicos sólidos y equilibrados.",
+        c2_s3_t: "GOBERNANZA Y CUMPLIMIENTO",
+        c2_s3_o: "\"Procesos auditables, estándares estrictos de cumplimiento y continuidad sucesoria ordenada.\"",
+        c2_s4_v: "Plano final sereno del espacio arquitectónico con fundido a negro.",
+        c2_s4_t: "ARQUITECTURA INSTITUCIONAL",
+        c2_s4_o: "\"Diseñado para perdurar y responder al criterio de asesores y family offices.\"",
+        c3_title: "Capítulo 03 · El Respaldo — Hitos y Liquidez (40s)",
+        c3_fmt: "Master 16:9 + 9:16 nativo + versión clean",
+        c3_aud: "Rótulos de control visibles en silencio; voz firme con audio",
+        c3_emb: "Sin revelar ubicación ni panorámicas identificables",
+        c3_qua: "Precisión en cifras validadas y transiciones limpias",
+        c3_s1_v: "Plano arquitectónico estable con luz natural equilibrada y sensación de solidez.",
+        c3_s1_t: "CUSTODIA ESCROW",
+        c3_s1_o: "\"La confianza se construye con controles verificables antes de cada avance.\"",
+        c3_s2_v: "Planos breves y limpios de detalle estructural y acabados en entorno tranquilo.",
+        c3_s2_t: "DESEMBOLSO POR HITOS AUDITADOS",
+        c3_s2_o: "\"Los fondos operan bajo custodia escrow y se liberan solo tras hitos auditados y validación técnica.\"",
+        c3_s3_v: "Continuidad visual serena hacia el exterior arquitectónico sin pistas geográficas.",
+        c3_s3_o: "\"Integra un suelo de liquidez contractual de ciento cincuenta mil dólares y mantenimiento auditado.\"",
+        c3_s4_v: "Plano sereno de cierre hacia pantalla institucional sin revelar ubicación.",
+        c3_s4_t: "DISCIPLINA DE CAPITAL",
+        c3_s4_o: "\"Rigor de ejecución en cada fase, antes de revelar el destino.\"",
+        c4_title: "Capítulo 04 · La Revelación — Santuario Isla La Porcada (45s)",
+        c4_fmt: "Master 16:9 + 9:16 nativo + clean + cutdowns CTA",
+        c4_aud: "Revelación clara de ubicación y acceso PPM en ambos modos",
+        c4_emb: "Apertura oficial de marca, Chiriquí (Panamá) y Ley 1 de 1997",
+        c4_qua: "Planos amplios estables y cierre limpio hacia NDA/PPM",
+        c4_s1_v: "Apertura visual amplia que revela el entorno natural, el borde costero y la arquitectura.",
+        c4_s1_o: "\"Llega el momento de la revelación: Santuario Isla La Porcada.\"",
+        c4_s2_v: "Planos amplios que muestran la escala del enclave integrado con el entorno natural.",
+        c4_s2_t: "347 HA · CHIRIQUÍ, PANAMÁ",
+        c4_s2_o: "\"Trescientas cuarenta y siete hectáreas en Chiriquí, Panamá, estructuradas bajo fideicomiso regulado.\"",
+        c4_s3_v: "Planos serenos de arquitectura integrada y entorno preservado a ritmo pausado.",
+        c4_s3_t: "5.000 TÍTULOS EXECUTIVE · LEY 1 DE 1997",
+        c4_s3_o: "\"Un proyecto con respaldo fiduciario y cinco mil títulos Executive concebidos para un círculo selecto.\"",
+        c4_s4_v: "Cierre institucional sobrio con llamada a la acción para inversores cualificados.",
+        c4_s4_t: "ZÚRICH · GINEBRA · LONDRES · MIAMI · PPM (NDA)",
+        c4_s4_o: "\"Solicite una reunión privada y el Private Placement Memorandum en Zúrich, Ginebra, Londres o Miami.\"",
+        s4_title: "4. Página de Aterrizaje Confidencial — Capítulo 4 (PPM bajo NDA)",
+        s4_desc: "Estructura y textos clave para convertir tráfico cualificado hacia reuniones y entrega del PPM previa verificación y NDA.",
+        lp_eyebrow: "Revelación Oficial · Chiriquí, Panamá · Acceso Restringido",
+        lp_title: "Santuario Isla La Porcada: Una Arquitectura Patrimonial Respaldada en Fideicomiso",
+        lp_lead: "Información reservada a banqueros privados, external asset managers (EAMs), family offices e inversores cualificados. La entrega del Private Placement Memorandum (PPM) se realiza previa verificación y firma de NDA.",
+        lp_body: "Tras tres capítulos centrados en la soberanía del entorno, la segregación patrimonial y la disciplina de control, se revela el emplazamiento del proyecto: 347 hectáreas en Chiriquí, República de Panamá, articuladas mediante un fideicomiso mercantil regulado bajo la Ley 1 de 1997 y una emisión limitada a 5.000 Títulos Executive en Fase 0.",
+        p1_h: "Segregación y Gobernanza",
+        p1_p: "Patrimonio autónomo bajo fideicomiso mercantil regulado, continuidad sucesoria ordenada y cumplimiento KYC/AML.",
+        p2_h: "Control por Hitos y Escrow",
+        p2_p: "Custodia escrow y desembolsos condicionados a certificación técnica independiente en obra y validación operativa.",
+        p3_h: "Liquidez y Mantenimiento",
+        p3_p: "Buyback Floor contractual de $150.000 USD sujeto a provisión fiduciaria y cuota anual auditada de $50.000 USD.",
+        p4_h: "Plazas de Atención",
+        p4_p: "Reuniones privadas y entrega de documentación bajo NDA en Zúrich, Ginebra, Londres y Miami.",
+        cta_title: "Formulario Cualificado: Nombre · Entidad · Cargo · Correo Corporativo · Plaza (Zúrich, Ginebra, Londres, Miami) · Aceptación NDA",
+        cta_legal: "No constituye oferta pública de valores. Sujeto a elegibilidad jurisdiccional, verificación y firma de NDA.",
+        cta_btn: "Solicitar Acceso Bajo NDA",
+        copy_prompt: "Copiar Prompt",
+        video_nosupport: "Tu navegador no soporta la reproducción de video.",
+        c1_prompt_lbl: "Prompt Técnico de Producción IA (Runway Gen-3 / Sora / Kling)",
+        c2_prompt_lbl: "Prompt Técnico de Producción IA (Runway Gen-3 / Sora / Kling)",
+        c3_prompt_lbl: "Prompt Técnico de Producción IA (Runway Gen-3 / Sora / Kling)",
+        c4_prompt_lbl: "Prompt Técnico de Producción IA (Runway Gen-3 / Sora / Kling)",
+        c1_video_cap: "Video referencial · Capítulo 01 · La Tesis",
+        c2_video_cap: "Video referencial · Capítulo 02 · El Blindaje",
+        c3_video_cap: "Video referencial · Capítulo 03 · El Respaldo",
+        c4_video_cap: "Video referencial · Capítulo 04 · La Revelación",
+        s5_title: "Serenidad",
+        s5_desc: "Cierre contemplativo de la campaña. Una pieza audiovisual que resume la promesa del Santuario: soberanía, silencio y pertenencia, condensados en un instante de quietud frente al Pacífico de Chiriquí.",
+        s5_video_cap: "Video referencial · Serenidad — Cierre contemplativo",
+        logo_eco: "Ecoresort La Porcada",
+        logo_takyma: "Takyma Investment Pioneer — Promotor",
+        footer_legal: "© 2026 Ecoresort La Porcada — by Takyma Investment Pioneer. Todos los derechos reservados.",
+      },
+      en: {
+        print_btn: "Save / Print PDF",
+        hero_eyebrow: "Executive Presentation · Media & Production Brief",
+        hero_title: "Santuario Isla La Porcada — 4-Chapter Campaign",
+        hero_desc: "Progressive audiovisual strategy for private bankers, External Asset Managers (EAMs), and Family Offices in Zurich, Geneva, London, and Miami. Full geographic embargo in Chapters 1–3 and official reveal in Chapter 4 (347 ha in Chiriquí, Panama).",
+        kpi1_label: "Phase 0 · Issuance",
+        kpi1_val: "5,000 Memberships",
+        kpi1_sub: "$250,000 USD Initiation Fee",
+        kpi2_label: "Phase 0 Net Proceeds",
+        kpi2_sub: "Gross: $1,250M USD · $50k channel fee",
+        kpi3_label: "Estimated CAPEX",
+        kpi3_sub: "Escrow & audited milestones",
+        kpi4_label: "Liquidity & Fee",
+        kpi4_sub: "Buyback Floor · Annual maintenance",
+        s1_title: "1. Adjusted Truthome Assessment (Target ≥ 9/10)",
+        s1_desc: "Alignment with the Chapter 4 embargo rule, fiduciary discipline, and operational clarity for media and production agencies.",
+        sc1_title: "Concept",
+        sc1_text: "Four-act funnel with strict embargo rules in Chapters 1–3 and a concrete jurisdictional reveal in Chapter 4.",
+        sc2_title: "Rigour",
+        sc2_text: "Consistent figures across raise, CAPEX, escrow custody, audited milestones, $150k Buyback Floor, and $50k annual fee.",
+        sc3_title: "Credibility",
+        sc3_text: "Institutional framing of asset segregation, governance, and KYC/AML compliance tailored for EAMs, private banks, and Family Offices.",
+        sc4_title: "Utility",
+        sc4_text: "Video specs, second-by-second scripts, and NDA-gated landing architecture ready for executive sign-off.",
+        s2_title: "2. Progressive Rollout Strategy (4 Chapters)",
+        s2_desc: "Sequenced reveal engineered to establish the wealth thesis prior to disclosing Panama.",
+        th_cap: "Chapter",
+        th_axis: "Narrative Axis",
+        th_embargo: "Disclosure Level",
+        th_goal: "Institutional Objective",
+        b_embargo: "Full Embargo (0%)",
+        b_reveal: "Official Reveal",
+        m1_axis: "Sovereignty of Place & Privacy",
+        m1_goal: "Establish discretion, control of surroundings, and a 5,000-member circle with zero geographic cues.",
+        m2_axis: "Asset Segregation & Governance",
+        m2_goal: "Speak the language of EAMs and Family Offices: ring-fenced estate, governance, and orderly succession.",
+        m3_axis: "Milestone Control & Liquidity",
+        m3_goal: "Reinforce execution with escrow custody, independent oversight, and a $150,000 USD Buyback Floor.",
+        m4_axis: "The Reveal: Santuario Isla La Porcada",
+        m4_goal: "Reveal 347 ha in Chiriquí (Panama), Law 1 of 1997, and drive NDA-gated PPM requests in Zurich, Geneva, London, and Miami.",
+        s3_title: "3. Video Specifications & Second-by-Second Scripts",
+        s3_desc: "16:9 and 9:16 formats, silent vs. audio performance, embargo controls, and detailed script per chapter.",
+        lbl_formats: "Formats",
+        lbl_audio: "With / Without Audio",
+        lbl_embargo: "Embargo Control",
+        lbl_quality: "Quality",
+        th_time: "Timecode",
+        th_vis: "Visual Direction",
+        th_tit: "On-Screen Title",
+        th_vo: "Voiceover",
+        c1_title: "Chapter 01 · The Thesis — Sovereignty & Privacy (35s)",
+        c1_fmt: "16:9 Master + native 9:16 + clean version",
+        c1_aud: "Silent autoplay with key titles; measured voiceover with audio",
+        c1_emb: "Zero name, country, coordinates, or geographic cues",
+        c1_qua: "Steady architecture, warm light, zero AI artifacts",
+        c1_s1_v: "Slow push-in toward minimalist limestone, dark timber, and glass pavilion beside calm water.",
+        c1_s1_o: "\"For decades, luxury was measured by visibility.\"",
+        c1_s2_v: "Medium shot along calm water and understated facade with zero crowds or visual clutter.",
+        c1_s2_t: "SOVEREIGNTY OF PLACE",
+        c1_s2_o: "\"Today, the true standard for significant wealth is different: sovereignty of place.\"",
+        c1_s3_v: "Detail of textured stone, brushed bronze, and glass in soft side light.",
+        c1_s3_t: "UNCOMPROMISED PRIVACY",
+        c1_s3_o: "\"Command over one's environment, genuine discretion, and distance from everyday noise.\"",
+        c1_s4_v: "Restrained wide shot by calm water easing into a clean fade to black.",
+        c1_s4_t: "5,000 EXECUTIVE MEMBERSHIPS",
+        c1_s4_o: "\"A membership conceived for five thousand holders selected with institutional rigor.\"",
+        c2_title: "Chapter 02 · The Shield — Segregation & Governance (40s)",
+        c2_fmt: "16:9 Master + native 9:16 + clean version",
+        c2_aud: "Clear legal titles in silence; institutional voiceover with audio",
+        c2_emb: "No mention of Panama or local statutes prior to Chapter 4",
+        c2_qua: "Composed framing, legible typography, zero flicker",
+        c2_s1_v: "Composed shot over table with natural stone, unbranded folio, and directional light.",
+        c2_s1_t: "AUTONOMOUS ESTATE",
+        c2_s1_o: "\"A lasting wealth asset requires more than refined aesthetics: it requires legal architecture.\"",
+        c2_s2_v: "Smooth transition into a calm, sunlit interior with clean geometric lines.",
+        c2_s2_t: "RISK SEGREGATION",
+        c2_s2_o: "\"A trust structure with ring-fenced assets, separating the vehicle from operational risk.\"",
+        c2_s3_v: "Close detail of solid, balanced architectural elements.",
+        c2_s3_t: "GOVERNANCE & COMPLIANCE",
+        c2_s3_o: "\"Auditable controls, rigorous compliance standards, and orderly succession continuity.\"",
+        c2_s4_v: "Serene closing architectural frame fading cleanly to black.",
+        c2_s4_t: "INSTITUTIONAL ARCHITECTURE",
+        c2_s4_o: "\"Built to endure and meet the scrutiny of advisors and family offices.\"",
+        c3_title: "Chapter 03 · The Backing — Milestones & Liquidity (40s)",
+        c3_fmt: "16:9 Master + native 9:16 + clean version",
+        c3_aud: "Control titles legible in silence; steady voiceover with audio",
+        c3_emb: "No location disclosure or identifiable panoramas",
+        c3_qua: "Accuracy on approved figures and clean transitions",
+        c3_s1_v: "Steady architectural shot in balanced natural light conveying structural solidity.",
+        c3_s1_t: "ESCROW CUSTODY",
+        c3_s1_o: "\"Confidence is built through verifiable controls before every step forward.\"",
+        c3_s2_v: "Brief, clean shots of structural detail and finishes in a quiet setting.",
+        c3_s2_t: "AUDITED MILESTONE DRAWDOWNS",
+        c3_s2_o: "\"Funds sit under escrow custody and release only against audited milestones and technical sign-off.\"",
+        c3_s3_v: "Calm visual continuity toward exterior architecture with no geographic clues.",
+        c3_s3_o: "\"Incorporates a contractual liquidity floor of one hundred fifty thousand dollars and audited maintenance.\"",
+        c3_s4_v: "Serene closing shot transitioning cleanly to an end card without revealing location.",
+        c3_s4_t: "CAPITAL DISCIPLINE",
+        c3_s4_o: "\"Execution discipline at every stage, before revealing the destination.\"",
+        c4_title: "Chapter 04 · The Reveal — Santuario Isla La Porcada (45s)",
+        c4_fmt: "16:9 Master + native 9:16 + clean + CTA cutdowns",
+        c4_aud: "Clear reveal of location and PPM access in both modes",
+        c4_emb: "Official reveal of brand, Chiriquí (Panama), and Law 1 of 1997",
+        c4_qua: "Steady wide frames and clean close toward NDA/PPM",
+        c4_s1_v: "Expansive opening shot revealing natural setting, coastal edge, and architecture.",
+        c4_s1_o: "\"The moment of revelation arrives: Santuario Isla La Porcada.\"",
+        c4_s2_v: "Sweeping shots showing the scale of the enclave integrated with its natural surroundings.",
+        c4_s2_t: "347 HA · CHIRIQUÍ, PANAMA",
+        c4_s2_o: "\"Three hundred forty-seven hectares in Chiriquí, Panama, structured under a regulated trust.\"",
+        c4_s3_v: "Calm frames of integrated architecture and preserved environment at a measured pace.",
+        c4_s3_t: "5,000 EXECUTIVE MEMBERSHIPS · LAW 1 OF 1997",
+        c4_s3_o: "\"Backed by trust governance and five thousand Executive memberships designed for a select circle.\"",
+        c4_s4_v: "Measured institutional close with call to action for qualified investors.",
+        c4_s4_t: "ZURICH · GENEVA · LONDON · MIAMI · PPM (NDA)",
+        c4_s4_o: "\"Request a private briefing and the Private Placement Memorandum in Zurich, Geneva, London, or Miami.\"",
+        s4_title: "4. Confidential Landing Page — Chapter 4 (PPM under NDA)",
+        s4_desc: "Structure and key copy to convert qualified traffic into private meetings and PPM delivery following verification and NDA.",
+        lp_eyebrow: "Official Reveal · Chiriquí, Panama · Restricted Access",
+        lp_title: "Santuario Isla La Porcada: A Trust-Backed Wealth Architecture",
+        lp_lead: "Reserved for private bankers, external asset managers (EAMs), family offices, and qualified investors. The Private Placement Memorandum (PPM) is provided subject to verification and NDA execution.",
+        lp_body: "Following three chapters focused on sovereignty of place, asset segregation, and execution discipline, the location is officially revealed: 347 hectares in Chiriquí, Republic of Panama, structured under a regulated commercial trust pursuant to Law 1 of 1997 with 5,000 Executive Memberships in Phase 0.",
+        p1_h: "Segregation & Governance",
+        p1_p: "Ring-fenced estate under a regulated trust, orderly succession continuity, and strict KYC/AML compliance.",
+        p2_h: "Milestones & Escrow",
+        p2_p: "Escrow custody with drawdowns tied to independent on-site technical certification and operational sign-off.",
+        p3_h: "Liquidity & Maintenance",
+        p3_p: "Contractual $150,000 USD Buyback Floor backed by trust reserve and $50,000 USD audited annual maintenance fee.",
+        p4_h: "Key Hubs",
+        p4_p: "Private briefings and NDA-gated documentation in Zurich, Geneva, London, and Miami.",
+        cta_title: "Qualified Form: Full Name · Firm · Role · Corporate Email · Hub (Zurich, Geneva, London, Miami) · NDA Consent",
+        cta_legal: "Not a public offering of securities. Subject to jurisdictional eligibility, verification, and NDA execution.",
+        cta_btn: "Request Access Under NDA",
+        copy_prompt: "Copy Prompt",
+        video_nosupport: "Your browser does not support video playback.",
+        c1_prompt_lbl: "AI Production Technical Prompt (Runway Gen-3 / Sora / Kling)",
+        c2_prompt_lbl: "AI Production Technical Prompt (Runway Gen-3 / Sora / Kling)",
+        c3_prompt_lbl: "AI Production Technical Prompt (Runway Gen-3 / Sora / Kling)",
+        c4_prompt_lbl: "AI Production Technical Prompt (Runway Gen-3 / Sora / Kling)",
+        c1_video_cap: "Reference video · Chapter 01 · The Thesis",
+        c2_video_cap: "Reference video · Chapter 02 · The Shield",
+        c3_video_cap: "Reference video · Chapter 03 · The Backing",
+        c4_video_cap: "Reference video · Chapter 04 · The Reveal",
+        s5_title: "Serenity",
+        s5_desc: "Contemplative close of the campaign. An audiovisual piece that distills the Sanctuary's promise — sovereignty, silence and belonging — into a single moment of stillness before the Pacific of Chiriquí.",
+        s5_video_cap: "Reference video · Serenity — Contemplative close",
+        logo_eco: "Ecoresort La Porcada",
+        logo_takyma: "Takyma Investment Pioneer — Promoter",
+        footer_legal: "© 2026 Ecoresort La Porcada — by Takyma Investment Pioneer. All rights reserved.",
+      }
+    };
+
+
+    function copyPrompt(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const text = el.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btns = document.querySelectorAll('.copy-mini-btn');
+        btns.forEach(btn => {
+          if (btn.getAttribute('onclick') === "copyPrompt('" + id + "')") {
+            const original = btn.textContent;
+            btn.textContent = (document.documentElement.lang === 'en') ? 'Copied!' : '¡Copiado!';
+            setTimeout(() => { btn.textContent = original; }, 1500);
+          }
+        });
+      });
+    }
+
+    const buttons = document.querySelectorAll(".lang-btn");
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.lang === lang));
+      const dict = translations[lang];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+  </script>
+</body>
+</html>
